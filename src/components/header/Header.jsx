@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 
 const Header = ({ setUserInput, ipAddressData, fetchData, userInput }) => {
   const [isValidIPAddress, setIsValidIPAddress] = useState(true);
@@ -6,7 +6,7 @@ const Header = ({ setUserInput, ipAddressData, fetchData, userInput }) => {
   function handleChange(e) {
     setUserInput(e.target.value);
   }
-
+console.log("test");
   function handleClick() {
     const ipRegex = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
     if (userInput === "" || !ipRegex.test(userInput)){
@@ -58,4 +58,4 @@ const Header = ({ setUserInput, ipAddressData, fetchData, userInput }) => {
   )
 }
 
-export default Header
+export default memo(Header)
